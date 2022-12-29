@@ -170,9 +170,9 @@ pub(super) unsafe fn get_disks() -> Vec<Disk> {
         // Skip any drive that is not locally attached to the system.
         //
         // This includes items like SMB mounts, and matches the other platform's behavior.
-        if !local_only {
-            continue;
-        }
+        // if !local_only {
+        //     continue;
+        // }
 
         let mount_point = PathBuf::from(OsStr::from_bytes(
             CStr::from_ptr(c_disk.f_mntonname.as_ptr()).to_bytes(),
